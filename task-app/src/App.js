@@ -1,7 +1,7 @@
 import "./App.css";
-
+import Overview from "./components/Overview.js";
 function App() {
-  return <div>Happy World</div>;
+  return <Overview tasks={[1, 2, 3]} />;
 }
 
 export default App;
