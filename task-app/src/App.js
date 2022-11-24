@@ -3,33 +3,42 @@ import Overview from "./components/Overview.js";
 import { useState } from "react";
 
 function App() {
-  const [taskState, setTasks] = useState([1, 2, 3]);
+  const [taskState, setTasks] = useState([1, 2]);
   const [inputText, setText] = useState("");
 
   return (
     <div>
-      <Input inputText={inputText} setText={setText}></Input>
-      <div class="Overview-mockup">{inputText}</div>
-      <Overview tasks={taskState} />
+      <Input
+        inputText={inputText}
+        setText={setText}
+        setTasks={setTasks}
+        taskState={taskState}
+      />
+      <Overview taskState={taskState} />
     </div>
   );
 }
+
+//!recreate Input with forms
 
 function Input(props) {
-  const { inputText, setText } = props;
+  const { inputText, setText, setTasks, taskState } = props;
 
   return (
-    <div>
-      <input type="text" id="taskInput" name="taskInput"></input>
-      <Button
-        onClick={() => {
-          setText("mockup");
-        }}
-      ></Button>
-    </div>
+    <form
+      onSubmit={() => {
+        setTasks([...taskState, inputText]);
+      }}
+    >
+      <div>{taskState}</div>
+      <input
+        onChange={(e) => setText(e.target.value)}
+        type="text"
+        id="taskInput"
+        name="taskInput"
+      ></input>
+    </form>
   );
 }
-function Button(props) {
-  return <button onClick={props.onClick}></button>;
-}
+
 export default App;
