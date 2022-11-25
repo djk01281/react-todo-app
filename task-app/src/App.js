@@ -3,7 +3,7 @@ import Overview from "./components/Overview.js";
 import { useState } from "react";
 
 function App() {
-  const [taskState, setTasks] = useState([1, 2]);
+  const [taskState, setTasks] = useState(["some task", "some other task"]);
   const [inputText, setText] = useState("");
 
   return (
@@ -24,14 +24,13 @@ function Input(props) {
 
   return (
     <div>
-      <div>{taskState}</div>
       <input
         onChange={(e) => setText(e.target.value)}
         type="text"
         id="taskInput"
         name="taskInput"
       ></input>
-      <button onClick={setTasks([...taskState, inputText])}></button>
+      <button onClick={(e) => setTasks([...taskState, inputText])}></button>
     </div>
   );
 }
