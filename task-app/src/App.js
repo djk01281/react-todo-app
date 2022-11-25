@@ -16,7 +16,7 @@ function App() {
         setTasks={setTasks}
         tasksState={tasksState}
         idState={idState}
-        setID={setId}
+        setId={setId}
         setTask={setTask}
         taskState={taskState}
       />
@@ -24,6 +24,7 @@ function App() {
     </div>
   );
 }
+//!Deleting one task deletes all
 
 function Input(props) {
   const {
@@ -39,10 +40,10 @@ function Input(props) {
 
   return (
     <div>
+      <div>{idState}</div>
       <input
         onChange={(e) => {
           setText(e.target.value);
-          setTask({ task: inputText, id: idState });
         }}
         type="text"
         id="taskInput"
@@ -50,6 +51,7 @@ function Input(props) {
       ></input>
       <button
         onClick={(e) => {
+          setTask({ task: inputText, id: idState });
           setTasks([...tasksState, taskState]);
           setId(idState + 1);
           //!below not working
