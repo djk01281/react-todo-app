@@ -19,17 +19,11 @@ function App() {
   );
 }
 
-//!recreate Input with forms
-
 function Input(props) {
   const { inputText, setText, setTasks, taskState } = props;
 
   return (
-    <form
-      onSubmit={() => {
-        setTasks([...taskState, inputText]);
-      }}
-    >
+    <div>
       <div>{taskState}</div>
       <input
         onChange={(e) => setText(e.target.value)}
@@ -37,7 +31,8 @@ function Input(props) {
         id="taskInput"
         name="taskInput"
       ></input>
-    </form>
+      <button onClick={setTasks([...taskState, inputText])}></button>
+    </div>
   );
 }
 
