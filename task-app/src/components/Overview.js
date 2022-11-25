@@ -1,9 +1,9 @@
 function Overview(props) {
-  const { taskState } = props;
+  const { tasksState } = props;
   return (
     <div>
-      {taskState.map((item) => {
-        return <div>{item}</div>;
+      {tasksState.map((item) => {
+        return <div>{item.task}</div>;
       })}
     </div>
   );
