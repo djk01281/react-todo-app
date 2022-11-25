@@ -20,7 +20,7 @@ function App() {
         setTask={setTask}
         taskState={taskState}
       />
-      <Overview tasksState={tasksState} />
+      <Overview tasksState={tasksState} setTasks={setTasks} />
     </div>
   );
 }
@@ -55,7 +55,9 @@ function Input(props) {
           //!below not working
           // setTasks([...taskState, { task: inputText, id: idState }]);
         }}
-      ></button>
+      >
+        +
+      </button>
     </div>
   );
 }
